@@ -1,1 +1,35 @@
-<p>me quede en esta parte tiempo de video 3:19:43</p>
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row margin-top-20">
+            <div class="col-md-6 offset-md-3">
+                <mat-card>
+                    <!--<div class="container text.text-center">
+                        espacio para poner imagen
+                    </div>-->
+                    <h1 class="text-center">Inicio de sesión</h1>
+                    <form (ngSubmit)="formSubmit()">
+
+                        <mat-form-field class="full-width" appearance="outline" >
+                            <mat-label>Nombre de usuario</mat-label>
+                            <input [(ngModel)] = "loginData.username" name="username" required  matInput placeholder="Ingrese su usuario">
+                            <mat-hint>El nombre de usuario debe ser válido</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field class="full-width" appearance="outline" >
+                            <mat-label>Contraseña</mat-label>
+                            <input [(ngModel)] = "loginData.password" name="password" required type="password" matInput placeholder="Ingrese su contraseña">
+                            <mat-hint>La contraseña debe ser válida</mat-hint>
+                        </mat-form-field>
+
+                        <br><br>
+
+                        <div class="container text-center">
+                            <button type="submit" mat-raised-button color="primary">Iniciar sesión</button>
+                            <button type="reset" mat-raised-button class="margin-left-20" color="accent">Limpiar</button>
+                        </div>
+
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

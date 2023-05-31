@@ -1,0 +1,61 @@
+<div class="bootstrap-wrapper border-left-right">
+    <div class="container">
+        <div class="row" >
+            <div class="col-md-10 offset-md-1">
+                <!-- FORMULARIO CREAR PUBLICACIÓN inicio -->
+                <mat-card>
+                    <form #formPublication = "ngForm" (ngSubmit) = "formSubmit(formPublication)">
+                        <mat-form-field class="full-width" style="padding: 0px 0px 0px 0px !important; ">
+                            <mat-label>Publicar partido</mat-label>
+                            <textarea style="padding: 0px 0px 0px 0px !important;" required [(ngModel)] = "publication.content" name = "content" matInput placeholder="Publicar partido"></textarea>
+                        </mat-form-field>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="full-width" style="padding: 0% !important;">
+                                    <mat-label>Cancha</mat-label>
+                                    <input required [(ngModel)] = "publication.placeMatch" name = "placeMatch" matInput placeholder="Cancha">
+                                </mat-form-field>
+                            </div>
+                            
+                            <div class="col-md-6">   
+                                <mat-form-field class="full-width" style="padding: 0% !important;">
+                                    <mat-label>Fecha</mat-label>
+                                    <input required [(ngModel)] = "publication.dateMatch" name = "dateMatch" type="date" matInput placeholder="Fecha">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="full-width" style="padding: 0px 0px px !important;">
+                                    <mat-label>Hora</mat-label>
+                                    <input required [(ngModel)] = "publication.timeMatch" name = "timeMatch" type="time" matInput placeholder="Hora">
+                                </mat-form-field>
+                            </div>
+                            
+                            <div class="col-md-6"> 
+                                <mat-form-field class="full-width" style="padding: 0px 0px px !important;">
+                                    <mat-label>Jugadores necesarios</mat-label>
+                                    <input required [(ngModel)] = "publication.playersLeft" name = "playersLeft" matInput placeholder="Jugadores necesarios">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="container text-right">
+                            <button mat-raised-button color="primary">Publicar</button>
+                            <button type="reset" mat-raised-button class="margin-left-20" color="accent">Limpiar</button>
+                        </div>
+
+                    </form>
+                </mat-card>
+                <!-- FORMULARIO CREAR PUBLICACIÓN fin -->
+
+                <!-- PUBLICACIONES inicio -->
+                <app-view-publications></app-view-publications>
+                <!-- PUBLICACIONES fin -->
+
+            </div>
+        </div>
+    </div>
+</div>

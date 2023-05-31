@@ -1,0 +1,66 @@
+<div class="margin-top-10" *ngFor = "let pub of publications; index as i">
+
+    <mat-divider></mat-divider>
+
+    <mat-card-header>
+        <div class="row full-width">
+            <div class="col-md-6 pad-0">
+                <mat-card-title class="margin-top-15">
+                    <h1 class="margin-bottom--15">{{ pub.user.username }}</h1>
+                </mat-card-title>
+                <mat-card-subtitle class="font-subtitle">
+                    {{ pub.user.name + " " + pub.user.lastname + " " +calcularDias(pub.date) }}
+                </mat-card-subtitle>
+            </div>
+            <div class="col-md-6 centrar-vertical justyfy-right pad-right-30">
+                <div class="thumb_up centrar-vertical"><mat-icon>thumb_up</mat-icon></div>
+                <div class="thumb_down centrar-vertical"><mat-icon class="margin-left-15">thumb_down</mat-icon></div>
+                <div class="chat centrar-vertical">
+                    <mat-icon [attr.data-target]="'#comment-'+i" data-toggle="collapse"  class="margin-left-20" matBadge="{{ cantComments[i] }}" matBadgeColor="accent" matBadgePosition="below before" matBadgeSize="small">
+                        chat
+                    </mat-icon>
+                </div>
+                <div class="delete centrar-vertical"><mat-icon (click)="deletePublication(pub.id)" class="margin-left-15">delete</mat-icon></div>
+                <div class="edit centrar-vertical"><mat-icon (click)="openDialog()" class="margin-left-15">edit</mat-icon></div>
+                <div class="add_circle centrar-vertical"><mat-icon class="margin-left-15">add_circle</mat-icon></div>
+            </div>
+        </div>        
+    </mat-card-header>
+    
+    <mat-card-content>
+        <div class="container-fluid">
+            <div class="row full-width pad-right-15 pad-left-15">
+                <p>{{ pub.content }}</p>
+            </div>
+            <mat-card>
+                <div class="row">
+                    <div class="full-width centrar-vertical full-width">
+                        <mat-icon class="centrar-vertical margin-right-10">location_on</mat-icon> {{ pub.placeMatch }}
+                    </div>
+                </div>
+                <div class="row text-center margin-top-15">
+                    <div class="col-md-4 centrar-vertical">
+                        <mat-icon class="centrar-vertical margin-right-10">groups</mat-icon> {{ pub.playersLeft + " jugadores" }}
+                    </div>
+                    <div class="col-md-4 centrar-vertical">
+                        <mat-icon class="centrar-vertical margin-right-10">calendar_month</mat-icon> {{ pub.dateMatch }}
+                    </div>
+                    <div class="col-md-4 centrar-vertical">
+                        <mat-icon class="centrar-vertical margin-right-10">schedule</mat-icon> {{ pub.timeMatch }}
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+        
+        <div id="comment-{{i}}" class="container-fluid pad-right-30 pad-left-30 collapse">
+            
+                <app-view-comments [publicationId] = "[pub.id, pub.user.id]" (enviar) = "contarComments($event)"></app-view-comments>
+            
+        </div>
+
+    </mat-card-content>
+    
+    
+    
+
+</div>

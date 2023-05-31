@@ -1,1 +1,33 @@
-<p>navbar works!</p>
+<mat-toolbar class="background-black" >
+    <a [routerLink]="'/main-page'" 
+        mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>sports_soccer</mat-icon>
+    </a>
+    <span>Fulbo</span>
+    
+    <span class="example-spacer"></span>
+
+    <a 
+        *ngIf="!isLoggedIn"
+        [routerLink]="'/login'" mat-icon-button class="example-icon favorite-icon" aria-label = "Example icon-button with heart icon">
+        Iniciar sesión
+    </a>
+    <a 
+        *ngIf="!isLoggedIn"
+        [routerLink]="'/signup'" mat-icon-button class="example-icon favorite-icon margin-right-20 margin-left-70" aria-label = "Example icon-button with heart icon">
+        Registrar
+    </a>
+    <a  
+        *ngIf="isLoggedIn"
+        (click) = "logout()" mat-icon-button class="example-icon favorite-icon margin-right-50" aria-label = "Example icon-button with heart icon">
+        Cerrar sesión
+    </a>
+    <button
+        *ngIf="isLoggedIn && user"
+        mat-button class="example-icon favorite-icon" 
+        routerLink="/admin/profile"
+        aria-label = "Example icon-button with heart icon">
+        {{loginService.getUser().username}}
+    </button>
+
+</mat-toolbar>

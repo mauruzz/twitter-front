@@ -1,0 +1,65 @@
+<div class="margin-top-10" *ngFor = "let comm of comments" >
+
+    <div class="row">
+        <div *ngIf="(comm.user.id == publicationId[1]); then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock>
+                <mat-card class="col-md-8 background-gray-700 pad-0-10-10-10 pad-left-15">
+
+                    <mat-card-header>
+                        <div class="row full-width">
+                            <div class="col-md-6 pad-0">
+                                <mat-card-title class="margin-top-15">
+                                    <h1 class="margin-bottom--15">{{ comm.user.username }}</h1>
+                                </mat-card-title>
+                                <mat-card-subtitle class="font-subtitle">
+                                    {{ comm.user.name + " " + comm.user.lastname + " " +calcularDias(comm.date) }}
+                                </mat-card-subtitle>
+                            </div>
+                            <div class="col-md-6 centrar-vertical justyfy-right pad-right-30">
+                                <div class="thumb_up centrar-vertical"><mat-icon mat-list-icon>thumb_up</mat-icon></div>
+                                <div class="thumb_down centrar-vertical"><mat-icon mat-list-icon class="margin-left-15">thumb_down</mat-icon></div>
+                                <div class="delete centrar-vertical"><mat-icon mat-list-icon class="margin-left-15">delete</mat-icon></div>
+                               </div>
+                        </div>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <p>{{ comm.content }}</p>
+                    </mat-card-content>
+
+                </mat-card>
+
+            </ng-template>
+            <ng-template #elseBlock>
+                <mat-card class="offset-md-4 col-md-8 background-gray-700 pad-0-10-10-10 pad-right-15">
+
+                    <mat-card-header>
+                        <div class="row full-width">
+                            <div class="col-md-6 pad-0">
+                                <mat-card-title class="margin-top-15">
+                                    <h1 class="margin-bottom--15">{{ comm.user.username }}</h1>
+                                </mat-card-title>
+                                <mat-card-subtitle class="font-subtitle">
+                                    {{ comm.user.name + " " + comm.user.lastname + " " +calcularDias(comm.date) }}
+                                </mat-card-subtitle>
+                            </div>
+                            <div class="col-md-6 centrar-vertical justyfy-right pad-right-30">
+                                <div class="thumb_up centrar-vertical"><mat-icon mat-list-icon>thumb_up</mat-icon></div>
+                                <div class="thumb_down centrar-vertical"><mat-icon mat-list-icon class="margin-left-15">thumb_down</mat-icon></div>
+                                <div class="delete centrar-vertical"><mat-icon mat-list-icon class="margin-left-15">delete</mat-icon></div>
+                               </div>
+                        </div>
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        <p>{{ comm.content }}</p>
+                    </mat-card-content>
+
+                </mat-card>
+            </ng-template>
+    </div>
+
+    
+    
+    
+</div>

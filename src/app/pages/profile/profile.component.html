@@ -1,0 +1,43 @@
+<mat-card style="margin-left: 10px;">
+    <h1>Detalles del perfil</h1>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <div class="text-center">
+                    <mat-icon fontIcon="person"></mat-icon>
+                    <h1 class="">{{ user.name + ' ' + user.lastname }}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <table class="table text-center">
+                            <tr>
+                                <td>Nombre de usuario</td>
+                                <td>{{user.username}}</td>
+                            </tr>
+                            <tr>
+                                <td>Id</td>
+                                <td>{{user.id}}</td>
+                            </tr>
+                            <tr>
+                                <td>Telefono</td>
+                                <td>{{user.telephone}}</td>
+                            </tr>
+                            <tr>
+                                <td>Rol</td>
+                                <td>{{user.authorities[0].authority}}</td>
+                            </tr>
+                            <tr>
+                                <td>Estado</td>
+                                <td>{{user.status ? "Activo" : "Inactivo"}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <mat-card-actions class="text-center">
+            <button mat-raised-button color="primary">Actualizar</button>
+            <button mat-raised-button color="accent">Compartir</button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>
